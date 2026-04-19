@@ -86,5 +86,15 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		c.Data(http.StatusOK, []byte(swaggerHTML))
 	})
 
+	server.GET("/docs", func(c *Context) {
+		c.SetHeader("Content-Type", "text/html; charset=utf-8")
+		c.Data(http.StatusOK, []byte(swaggerHTML))
+	})
+
+	server.GET("/docs/", func(c *Context) {
+		c.SetHeader("Content-Type", "text/html; charset=utf-8")
+		c.Data(http.StatusOK, []byte(swaggerHTML))
+	})
+
 	server.Handle(w, r)
 }
